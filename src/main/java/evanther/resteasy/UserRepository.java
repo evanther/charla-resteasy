@@ -1,9 +1,14 @@
 package evanther.resteasy;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 public class UserRepository {
     private static final Map<Long, User> table;
@@ -19,6 +24,11 @@ public class UserRepository {
     }
 
     public static final class User {
+
+        // Me obliga el serializer de XML
+        public User() {
+        }
+
         private Long id;
         private String name;
 
@@ -27,12 +37,15 @@ public class UserRepository {
             this.name = name;
         }
 
+        @XmlElement
         public Long getId() {
             return id;
         }
         public void setId(Long id) {
             this.id = id;
         }
+
+        @XmlElement
         public String getName() {
             return name;
         }
@@ -41,12 +54,34 @@ public class UserRepository {
         }
     }
 
+    @XmlRootElement(name = "users")
+    public static final class UserList {
+        private List<User> users;
+
+        // Me obliga el serializer de XML
+        public UserList() {
+        }
+
+        public UserList(Collection<User> users) {
+            this.users = new ArrayList<User>(users);
+        }
+
+        @XmlElement(name = "user")
+        public List<User> getUsers() {
+            return users;
+        }
+
+        public void setUsers(List<User> users) {
+            this.users = users;
+        }
+    }
+
     public static final Boolean exists(Long id) {
         return table.containsKey(id);
     }
 
-    public static final Collection<User> list() {
-        return table.values();
+    public static final UserList list() {
+        return new UserList(table.values());
     }
 
     public static final void add(User user) {
