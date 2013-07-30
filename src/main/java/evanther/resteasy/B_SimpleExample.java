@@ -14,7 +14,10 @@ public class B_SimpleExample {
 
     @GET
     @Path("/{id}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces({ 
+        MediaType.APPLICATION_JSON, 
+        MediaType.APPLICATION_XML 
+    })
     public Response getUser(@PathParam("id") Long id) {
 
         if (UserRepository.exists(id)) {
