@@ -23,6 +23,7 @@ public class UserRepository {
         table.put(3l, new User(3l, "Alberto"));
     }
 
+    @XmlRootElement(name = "user")
     public static final class User {
 
         // Me obliga el serializer de XML
