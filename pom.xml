@@ -8,20 +8,12 @@
 	<name>Resteasy Tutorial</name>
 	<version>0.1-SNAPSHOT</version>
 
-	<repositories>
-		<repository>
-			<id>jboss</id>
-			<url>http://repository.jboss.org/maven2</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
-	
-		<!-- core of Resteasy -->
+		<!-- Core of Resteasy -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
-			<version>2.3.1.GA</version>
+			<version>3.0.2.Final</version>
 		</dependency>
 		
 		<!-- json serialization -->
@@ -37,7 +29,14 @@
 			<artifactId>resteasy-jaxb-provider</artifactId>
 			<version>3.0.2.Final</version>
 		</dependency>
-	    
+		
+		<!-- RESTEasy Client -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>3.0.2.Final</version>
+		</dependency>
+		
 		<!-- provided -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

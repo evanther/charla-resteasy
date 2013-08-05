@@ -1,4 +1,4 @@
-package evanther.resteasy;
+package evanther.resteasy.server;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,29 +12,29 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 
-import evanther.resteasy.UserRepository.User;
+import evanther.resteasy.server.UserRepository.User;
 
 @Provider
-@Produces(MediaType.APPLICATION_JSON)
-public class UserJsonWriter { // implements MessageBodyWriter<User> {
+@Produces(MediaType.APPLICATION_XML)
+public class UserXmlWriter { // implements MessageBodyWriter<User> {
 
-    //    @Override
+    // @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return true;
     }
 
-    //    @Override
+    // @Override
     public long getSize(User t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return -1;
     }
 
-    //    @Override
+    // @Override
     public void writeTo(User user, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType,
             MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException,
             WebApplicationException {
 
         PrintWriter writer = new PrintWriter(entityStream);
-        writer.print("{\"id\":" + user.getId() + ",\"nombre\":\"" + user.getName() + "\"}");
+        writer.print("<user><id>" + user.getId() + "</id><nombre>" + user.getName() + "</nombre></user>");
 
         writer.flush();
         writer.close();

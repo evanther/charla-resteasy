@@ -1,4 +1,4 @@
-package evanther.resteasy;
+package evanther.resteasy.server;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -6,8 +6,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import evanther.resteasy.c.Drink;
-import evanther.resteasy.c.Fruit;
+import evanther.resteasy.server.c.Drink;
+import evanther.resteasy.server.c.Fruit;
 
 @Path("/c")
 public class C_ParameterBindingExample {

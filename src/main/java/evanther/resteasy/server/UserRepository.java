@@ -1,4 +1,4 @@
-package evanther.resteasy;
+package evanther.resteasy.server;
 
 import java.util.ArrayList;
 import java.util.Collection;

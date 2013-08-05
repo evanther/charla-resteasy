@@ -1,4 +1,4 @@
-package evanther.resteasy;
+package evanther.resteasy.server;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -10,8 +10,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import evanther.resteasy.UserRepository.User;
-import evanther.resteasy.UserRepository.UserList;
+import evanther.resteasy.server.UserRepository.User;
+import evanther.resteasy.server.UserRepository.UserList;
 
 @Path("/a")
 public class A_SimpleUserABM {

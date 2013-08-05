@@ -1,4 +1,4 @@
-package evanther.resteasy.c;
+package evanther.resteasy.server.c;
 
 public class Fruit {
     private Integer id;
