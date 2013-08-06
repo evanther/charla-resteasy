@@ -9,8 +9,8 @@ import javax.ws.rs.core.Response.Status;
 import evanther.resteasy.server.c.Drink;
 import evanther.resteasy.server.c.Fruit;
 
-@Path("/c")
-public class C_ParameterBindingExample {
+@Path("/d")
+public class D_ParameterBindingExample {
 
     @GET
     @Path("/drink/{id}")

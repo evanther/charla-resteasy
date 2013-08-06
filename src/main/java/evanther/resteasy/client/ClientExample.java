@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-public class MainClient {
+public class ClientExample {
 
     public static void main(String[] args) throws Exception {
 
