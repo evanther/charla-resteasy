@@ -8,10 +8,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import evanther.resteasy.server.UserRepository.User;
+import evanther.resteasy.server.util.User;
+import evanther.resteasy.server.util.UserRepository;
 
 @Path("/c")
 public class C_QueryParamExample {
+
+    private UserRepository userRepository = UserRepository.getInstance();
 
     @GET
     @Path("/user")
@@ -21,8 +24,8 @@ public class C_QueryParamExample {
     })
     public Response getUser(@QueryParam("id") Long id) {
 
-        if (UserRepository.exists(id)) {
-            User user = UserRepository.get(id);
+        if (userRepository.exists(id)) {
+            User user = userRepository.get(id);
             return Response.status(Status.OK).entity(user).build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("User Id not found").build();

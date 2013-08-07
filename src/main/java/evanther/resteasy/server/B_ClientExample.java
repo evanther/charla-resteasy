@@ -1,4 +1,4 @@
-package evanther.resteasy.client;
+package evanther.resteasy.server;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-public class ClientExample {
+public class B_ClientExample {
 
     public static void main(String[] args) throws Exception {
 

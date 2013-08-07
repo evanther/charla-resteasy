@@ -9,24 +9,37 @@
 	<version>0.1-SNAPSHOT</version>
 
 	<dependencies>
-		<!-- Core of Resteasy -->
+		<!-- Core of RESTEasy -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>3.0.2.Final</version>
 		</dependency>
 		
-		<!-- json serialization -->
+		<!-- Json serialization -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jboss.resteasy</groupId> -->
+<!-- 			<artifactId>resteasy-jackson-provider</artifactId> -->
+<!-- 			<version>3.0.2.Final</version> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jackson-provider</artifactId>
+			<artifactId>resteasy-jettison-provider</artifactId>
 			<version>3.0.2.Final</version>
 		</dependency>
 		
-		<!-- xml serialization -->
+		<!-- XML serialization -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.2.Final</version>
+		</dependency>
+
+		<!-- Atom links -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-links</artifactId>
 			<version>3.0.2.Final</version>
 		</dependency>
 		
@@ -37,15 +50,22 @@
 			<version>3.0.2.Final</version>
 		</dependency>
 		
-		<!-- provided -->
+		<!-- RESTEasy standalone with Netty -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-netty</artifactId>
+			<version>3.0.2.Final</version>
 		</dependency>
+		
+		<!-- Provided -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.servlet</groupId> -->
+<!-- 			<artifactId>servlet-api</artifactId> -->
+<!-- 			<version>2.5</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
 	
-		<!-- test -->
+		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
