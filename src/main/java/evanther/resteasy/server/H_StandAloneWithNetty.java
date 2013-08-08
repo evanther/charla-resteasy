@@ -7,7 +7,7 @@ import org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 
 
-public class H_StandAloneUsingNetty {
+public class H_StandAloneWithNetty {
 
     public static void main(String[] args) throws Exception {
         List<String> resources = new ArrayList<String>();
@@ -24,7 +24,7 @@ public class H_StandAloneUsingNetty {
         // netty.setRootResourcePath("netty");
 
         netty.start();
-        System.out.println("Server listening on port " + port);
+        System.out.println("Netty server listening on port " + port);
     }
 
 }

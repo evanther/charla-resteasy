@@ -50,11 +50,24 @@
 			<version>3.0.2.Final</version>
 		</dependency>
 		
-		<!-- RESTEasy standalone with Netty -->
+		<!-- Standalone with Netty -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-netty</artifactId>
 			<version>3.0.2.Final</version>
+		</dependency>
+		
+		<!-- Standalone with Jetty -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.0.4.v20130625</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>9.0.4.v20130625</version>
 		</dependency>
 		
 		<!-- Provided -->
