@@ -1,4 +1,4 @@
-package evanther.resteasy.server.util;
+package evanther.resteasy.server.other;
 
 public class TokenManager {
     public static boolean isValid(String token) {

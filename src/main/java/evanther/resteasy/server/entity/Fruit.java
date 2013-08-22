@@ -1,4 +1,4 @@
-package evanther.resteasy.server.util;
+package evanther.resteasy.server.entity;
 
 public class Fruit {
     private Integer id;

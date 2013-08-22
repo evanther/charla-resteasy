@@ -10,10 +10,10 @@ import javax.ws.rs.core.MediaType;
 
 import org.jboss.resteasy.annotations.providers.jaxb.Wrapped;
 
-import evanther.resteasy.server.util.Book;
-import evanther.resteasy.server.util.BookRepository;
-import evanther.resteasy.server.util.InvalidTokenException;
-import evanther.resteasy.server.util.TokenManager;
+import evanther.resteasy.server.entity.Book;
+import evanther.resteasy.server.other.InvalidTokenException;
+import evanther.resteasy.server.other.TokenManager;
+import evanther.resteasy.server.repository.BookRepository;
 
 @Path("/g")
 public class G_ExceptionHandlingExample {

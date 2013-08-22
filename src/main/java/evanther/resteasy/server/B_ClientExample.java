@@ -7,7 +7,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import evanther.resteasy.server.util.User;
+import evanther.resteasy.server.entity.User;
 
 public class B_ClientExample {
 

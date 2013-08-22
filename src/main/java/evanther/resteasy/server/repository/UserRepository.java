@@ -1,10 +1,12 @@
-package evanther.resteasy.server.util;
+package evanther.resteasy.server.repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import evanther.resteasy.server.entity.User;
 
 public class UserRepository {
     private static UserRepository instance;

@@ -18,8 +18,8 @@ import org.jboss.resteasy.annotations.providers.jaxb.Wrapped;
 import org.jboss.resteasy.links.AddLinks;
 import org.jboss.resteasy.links.LinkResource;
 
-import evanther.resteasy.server.util.Book;
-import evanther.resteasy.server.util.BookRepository;
+import evanther.resteasy.server.entity.Book;
+import evanther.resteasy.server.repository.BookRepository;
 
 @Path("/f")
 public class F_AtomLinksExample {

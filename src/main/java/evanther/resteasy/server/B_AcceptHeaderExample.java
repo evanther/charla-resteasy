@@ -15,8 +15,8 @@ import javax.ws.rs.core.Response.Status;
 
 import org.jboss.resteasy.annotations.providers.jaxb.Wrapped;
 
-import evanther.resteasy.server.util.User;
-import evanther.resteasy.server.util.UserRepository;
+import evanther.resteasy.server.entity.User;
+import evanther.resteasy.server.repository.UserRepository;
 
 @Path("/b")
 public class B_AcceptHeaderExample {

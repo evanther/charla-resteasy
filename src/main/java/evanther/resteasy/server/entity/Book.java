@@ -1,4 +1,4 @@
-package evanther.resteasy.server.util;
+package evanther.resteasy.server.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;

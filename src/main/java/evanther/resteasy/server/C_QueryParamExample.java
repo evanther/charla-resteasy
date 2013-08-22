@@ -8,8 +8,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import evanther.resteasy.server.util.User;
-import evanther.resteasy.server.util.UserRepository;
+import evanther.resteasy.server.entity.User;
+import evanther.resteasy.server.repository.UserRepository;
 
 @Path("/c")
 public class C_QueryParamExample {

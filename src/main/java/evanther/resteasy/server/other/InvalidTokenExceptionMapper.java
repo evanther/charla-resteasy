@@ -1,4 +1,4 @@
-package evanther.resteasy.server.util;
+package evanther.resteasy.server.other;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;

@@ -6,8 +6,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import evanther.resteasy.server.util.Drink;
-import evanther.resteasy.server.util.Fruit;
+import evanther.resteasy.server.entity.Drink;
+import evanther.resteasy.server.entity.Fruit;
 
 @Path("/d")
 public class D_ParameterBindingExample {
