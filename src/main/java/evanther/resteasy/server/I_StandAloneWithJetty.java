@@ -13,7 +13,7 @@ public class I_StandAloneWithJetty {
 
         WebAppContext context = new WebAppContext();
 
-        context.setWar("/...path_to_project.../target/resteasy-tutorial-0.1-SNAPSHOT.war");
+        context.setWar("/path/to/war");
         context.setContextPath("/");
 
         server.setHandler(context);

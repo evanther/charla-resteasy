@@ -16,14 +16,16 @@ import evanther.resteasy.server.util.User;
 import evanther.resteasy.server.util.UserRepository;
 
 @Path("/a")
-public class A_SimpleUserABM {
+public class A_BasicUserABM {
 
     private UserRepository userRepository = UserRepository.getInstance();
 
     /**
      * NOTA: Para evitar exception
      * "NoMessageBodyWriterFoundFailure: Could not find MessageBodyWriter" es
-     * necesario usar el serializer de Jackson
+     * necesario usar el serializer de Jackson. Esto sucede porque Jackson no
+     * requiere elemento root para serializar Json, a diferencia de Jettison que
+     * sí lo requiere
      */
     @GET
     @Path("/users")
@@ -46,20 +48,21 @@ public class A_SimpleUserABM {
 
     @POST
     @Path("/user/create/{name}")
-    public Response create(@PathParam("name") String name) {
+    public Response createUser(@PathParam("name") String name) {
         User user = new User(0l, name);
         userRepository.add(user);
-        return Response.status(Status.OK).entity("created id " + user.getId()).type(MediaType.APPLICATION_JSON).build();
+        return Response.status(Status.OK).entity("Resource created with id = " + user.getId())
+                .type(MediaType.APPLICATION_JSON).build();
     }
 
     @PUT
     @Path("/user/update/{id}/{name}")
-    public Response update(@PathParam("id") Long id, @PathParam("name") String name) {
+    public Response updateUser(@PathParam("id") Long id, @PathParam("name") String name) {
 
         if (userRepository.exists(id)) {
             User user = new User(id, name);
             userRepository.update(user);
-            return Response.status(Status.OK).entity("updated").type(MediaType.APPLICATION_JSON).build();
+            return Response.status(Status.OK).entity("Resource updated").type(MediaType.APPLICATION_JSON).build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("User Id not found").build();
         }
@@ -71,7 +74,7 @@ public class A_SimpleUserABM {
 
         if (userRepository.exists(id)) {
             userRepository.remove(id);
-            return Response.status(Status.OK).entity("deleted").build();
+            return Response.status(Status.OK).entity("Resource deleted").build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("User Id not found").build();
         }

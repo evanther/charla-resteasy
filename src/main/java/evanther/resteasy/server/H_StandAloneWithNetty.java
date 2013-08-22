@@ -6,7 +6,12 @@ import java.util.List;
 import org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 
-
+/**
+ * Netty is a NIO (New Java I/O) client server framework which enables quick and
+ * easy development of network applications such as protocol servers and
+ * clients. It greatly simplifies and streamlines network programming such as
+ * TCP and UDP socket server.
+ */
 public class H_StandAloneWithNetty {
 
     public static void main(String[] args) throws Exception {

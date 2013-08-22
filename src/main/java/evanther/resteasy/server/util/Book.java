@@ -26,10 +26,6 @@ public class Book {
         this.title = title;
     }
 
-    /**
-     * NOTA: La anotacion @ResourceID permite al ServiceDiscovery conocer el ID
-     * del recurso devuelto para representar la relacion "self"
-     */
     @XmlElement
     public Long getId() {
         return id;

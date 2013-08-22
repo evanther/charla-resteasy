@@ -52,27 +52,28 @@ public class B_AcceptHeaderExample {
     }
 
     @POST
-    @Path("/user/create")
+    @Path("/users")
+    @Consumes({
+        MediaType.APPLICATION_JSON,
+        MediaType.APPLICATION_XML
+    })
+    public Response createUser(User user) {
+        userRepository.add(user);
+        return Response.status(Status.OK).entity("Resource created with id = " + user.getId()).build();
+    }
+
+    @PUT
+    @Path("/user/{id}")
     @Consumes({
         MediaType.APPLICATION_JSON, 
         MediaType.APPLICATION_XML 
     })
-    public Response create(User user) {
-        userRepository.add(user);
-        return Response.status(Status.OK).entity("created id " + user.getId()).build();
-    }
+    public Response updateUser(@PathParam("id") Long id, User user) {
 
-    @PUT
-    @Path("/user/update")
-    @Consumes({ 
-        MediaType.APPLICATION_JSON, 
-        MediaType.APPLICATION_XML 
-    })
-    public Response update(User user) {
-
-        if (userRepository.exists(user.getId())) {
+        if (userRepository.exists(id)) {
+            user.setId(id);
             userRepository.update(user);
-            return Response.status(Status.OK).entity("updated").build();
+            return Response.status(Status.OK).entity("Resource updated").build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("User Id not found").build();
         }

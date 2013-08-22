@@ -2,6 +2,7 @@ package evanther.resteasy.server;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -25,10 +26,10 @@ public class F_AtomLinksExample {
 
     private BookRepository bookRepository = BookRepository.getInstance();
 
-    @AddLinks
-    @LinkResource(value = Book.class, rel = "list")
     @GET
     @Path("/books")
+    @AddLinks
+    @LinkResource(value = Book.class)
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Wrapped(element = "books")
     public List<Book> listBooks() {
@@ -36,10 +37,10 @@ public class F_AtomLinksExample {
         return bookList;
     }
 
-    @AddLinks
-    @LinkResource(value = Book.class, rel = "self", pathParameters = { "${id}" })
     @GET
     @Path("/book/{id}")
+    @AddLinks
+    @LinkResource(value = Book.class, pathParameters = { "${id}" })
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public Response getBook(@PathParam("id") Long id) {
 
@@ -51,41 +52,38 @@ public class F_AtomLinksExample {
         }
     }
 
-    @LinkResource(value = Book.class, rel = "add", pathParameters = { "${author}", "${title}" })
     @POST
-    @Path("/book/create/{author}/{title}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response create(@PathParam("author") String author, @PathParam("title") String title) {
-        Book book = new Book(0l, author, title);
+    @Path("/books")
+    @LinkResource(value = Book.class)
+    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    public Response createBook(Book book) {
         bookRepository.add(book);
-        return Response.status(Status.OK).entity("created id " + book.getId()).build();
+        return Response.status(Status.OK).entity("Resource created with id " + book.getId()).build();
     }
 
-    @LinkResource(value = Book.class, rel = "update", pathParameters = { "${id}", "${author}", "${title}" })
     @PUT
-    @Path("/book/update/{id}/{author}/{title}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response update(@PathParam("id") Long id, @PathParam("author") String author,
-            @PathParam("title") String title) {
+    @Path("/book/{id}")
+    @LinkResource(value = Book.class, pathParameters = { "${id}" })
+    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    public Response updateBook(@PathParam("id") Long id, Book book) {
 
         if (bookRepository.exists(id)) {
-            Book book = new Book(id, author, title);
+            book.setId(id);
             bookRepository.update(book);
-            return Response.status(Status.OK).entity("updated").build();
+            return Response.status(Status.OK).entity("Resource updated").build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("Book Id not found").build();
         }
     }
 
-    @LinkResource(value = Book.class, rel = "remove", pathParameters = { "${id}" })
     @DELETE
-    @Path("/book/delete/{id}")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Path("/book/{id}")
+    @LinkResource(value = Book.class, pathParameters = { "${id}" })
     public Response delete(@PathParam("id") Long id) {
 
         if (bookRepository.exists(id)) {
             bookRepository.remove(id);
-            return Response.status(Status.OK).entity("deleted").build();
+            return Response.status(Status.OK).entity("Resource deleted").build();
         } else {
             return Response.status(Status.NOT_FOUND).entity("Book Id not found").build();
         }

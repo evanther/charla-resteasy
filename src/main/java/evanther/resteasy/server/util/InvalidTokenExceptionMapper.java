@@ -11,7 +11,7 @@ public class InvalidTokenExceptionMapper implements ExceptionMapper<InvalidToken
     @Override
     public Response toResponse(InvalidTokenException e) {
 
-        return Response.status(Status.FORBIDDEN).entity(e.getMessage()).build();
+        return Response.status(Status.FORBIDDEN).entity("InvalidTokenException: " + e.getMessage()).build();
 
     }
 
